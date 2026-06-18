@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Winner History</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Month</th>
+        <th>Member ID</th>
+        <th>Amount</th>
+    </tr>
+
+    {% for w in winners %}
+    <tr>
+        <td>{{ w.month }}</td>
+        <td>{{ w.member_id }}</td>
+        <td>{{ w.amount }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

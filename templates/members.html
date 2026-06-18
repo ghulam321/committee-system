@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Members</h2>
+
+<a href="/add-member" class="btn btn-primary mb-3">Add Member</a>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Monthly Amount</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+
+    {% for m in members %}
+    <tr>
+        <td>{{ m.id }}</td>
+        <td>{{ m.name }}</td>
+        <td>{{ m.phone }}</td>
+        <td>{{ m.monthly_amount }}</td>
+        <td>
+            {% if m.has_received %}
+                Received
+            {% else %}
+                Pending
+            {% endif %}
+        </td>
+
+        <td>
+            <a href="/delete-member/{{ m.id }}" class="btn btn-danger btn-sm">
+                Delete
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

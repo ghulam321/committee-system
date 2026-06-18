@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Monthly Payments</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Name</th>
+        <th>Month</th>
+        <th>Amount</th>
+        <th>Status</th>
+    </tr>
+
+    {% for m in members %}
+    <tr>
+        <td>{{ m.name }}</td>
+        <td>Month 1</td>
+        <td>{{ m.monthly_amount }}</td>
+        <td>
+            <span class="badge bg-warning">Pending</span>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
